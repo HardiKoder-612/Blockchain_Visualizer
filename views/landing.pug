@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Blockchain Visualizer
+    link(rel='stylesheet', href='/stylesheets/back.css')
+    link(rel='shortcut icon', href='/public/blockchain.ico', type='image/png')
+    link(rel='icon', href='/blockchain.ico')
+  body
+    section.showcase
+      header
+        h2.logo Blockchain Visualizer
+        .toggle
+      video(src='stylesheets/videoplayback.webm', muted='', loop='', autoplay='')
+      .overlay
+      #fade.text
+        h3 Welcome to the future of 
+        |  
+        h2
+          | DECENTRALIZED FINANCE
+          span &#x2744;
+        |  
+        p
+          | Join us and discover how blockchain can revolutionize your business and personal transactions.
+        a(href='/index', target='_blank') Explore
+      ul.social
+        li
+          a(href='https://www.facebook.com/blockchain/', target='_blank')
+            img(src='https://i.ibb.co/x7P24fL/facebook.png')
+        li
+          a(href='https://twitter.com/blockchain?lang=en', target='_blank')
+            img(src='https://i.ibb.co/Wnxq2Nq/twitter.png')
+        li
+          a(href='https://www.instagram.com/blockchainofficial/?hl=en', target='_blank')
+            img(src='https://i.ibb.co/ySwtH4B/instagram.png')
+    .menu
+      ul
+        li(class={active: page === 'hash'})
+            a(href='/hash') #{__('Hash')}
+        li(class={active: page === 'block'})
+            a(href='/block') #{__('Block')}    
+        li(class={active: page === 'blockchain'})
+            a(href='/blockchain') #{__('Blockchain')}
+        li(class={active: page === 'distributed'})
+            a(href='/distributed') #{__('Distributed')}
+        li(class={active: page === 'tokens'})
+            a(href='/tokens') #{__('Tokens')}
+        li(class={active: page === 'coinbase'})
+            a(href='/coinbase') #{__('Coinbase')}
+    script.
+      const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
+      menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      showcase.classList.toggle('active');
+      })
+      setTimeout(()=>{
+      const timeout = document.getElementById('fade');
+      timeout.style.display='none';
+      },5000);
